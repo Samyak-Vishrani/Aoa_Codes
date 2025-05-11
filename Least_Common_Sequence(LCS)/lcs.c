@@ -37,7 +37,6 @@ void lcsFunc(char x[], char y[]) {
 
             if(i == 0 || j == 0) {
                 lcs[i][j] = 0;
-                printf("0 set\t");
             }
             else if(x[i - 1] == y[j - 1]) {
                 // if equal then 1 + diagonal
