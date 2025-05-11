@@ -25,6 +25,7 @@ void rabinKarp(char pat[], char txt[], int n, int m) {
             return;
         }
     }
+    printf("Pattern not found\n");
 
 }
 
