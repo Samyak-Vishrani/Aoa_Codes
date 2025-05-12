@@ -2,12 +2,13 @@
 // #include <string.h>
 
 void createPi(char pat[], int pi[], int m) {
-    int piVal = 0;
+    int piVal = 1;
     pi[0] = 0;
+    pi[1] = 0;
     
-    int i = 1;
-    while(i < m) {
-        if(pi[i] == pi[piVal]) {
+    int i = 2;
+    while(i < m + 1) {
+        if(pat[i] == pat[piVal]) {
             piVal++;
             pi[i] = piVal;
             i++;
@@ -23,11 +24,15 @@ void createPi(char pat[], int pi[], int m) {
         }
     }
 
+    for(int i = 0; i < m + 1; i++) {
+        printf("%d\t", pi[i]);
+    }
+
 }
 
 void KMPSearch(char pat[], char txt[], int n, int m) {
 
-    int pi[m];
+    int pi[m + 1];
     createPi(pat, pi, m);
 
     int i = 0, q = 0;
@@ -37,7 +42,7 @@ void KMPSearch(char pat[], char txt[], int n, int m) {
             return;
         }
 
-        if(txt[i] == pat[q]) {
+        if(txt[i] == pat[q - 1]) {
             i++;
             q++;
         }
@@ -50,12 +55,11 @@ void KMPSearch(char pat[], char txt[], int n, int m) {
             }
         }
     }
+    printf("\nPattern not found\n");
 
 }
 
 int main() {
-    printf("Hello");
-
     char txt[] = "ABABCABCABABABD";
     char pat[] = "ABABD";
     int n = 15;
