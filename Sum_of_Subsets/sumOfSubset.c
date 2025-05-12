@@ -11,7 +11,7 @@ void sumOfSubset(int sum, int k, int rem) {
     x[k] = 1;
     if(sum + w[k] == target) {
         // print x
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i <= k; i++) {
             if(x[i] == 1)
                 printf("%d\t", w[i]);
         }
