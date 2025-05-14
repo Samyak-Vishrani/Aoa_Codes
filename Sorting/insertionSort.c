@@ -1,3 +1,5 @@
+// left part of array is always sorted
+
 #include <stdio.h>
 
 void insertionSort(int arr[], int n) {
