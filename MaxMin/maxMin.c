@@ -35,7 +35,6 @@ void maxMin(int arr[], int low, int high) {
 }
 
 int main() {
-    
     int arr[] = {3, 5, 1, 8, 2, 9, -2, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
 
