@@ -7,7 +7,6 @@ void createPi(char pat[], int pi[], int m) {
     pi[1] = 0;
     
     int i = 2;
-    // ABABD;
     while(i < m) {
         if(pat[i] == pat[piVal]) {
             piVal++;
