@@ -61,7 +61,6 @@ int main() {
 
     int p[] = {4, 10, 3, 12, 20, 7};
     matrixChainMulti(p);
-    // printMulti(1, n);
     printf("\n\n");
     optimalparens(1, n - 1);
 
