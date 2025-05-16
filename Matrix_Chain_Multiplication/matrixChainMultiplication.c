@@ -4,7 +4,7 @@
 #define n 6
 
 int m[n][n];
-// int k[n][n];
+int s[n][n];
 
 void matrixChainMulti(int p[]) {
     int i, j, k;
@@ -21,10 +21,12 @@ void matrixChainMulti(int p[]) {
             int min = INT_MAX;
             for(k = i; k < j; k++){
                 int q = (m[i][k] + m[k + 1][j] + (p[i - 1] * p[j] * p[k]));
-                if(q < min)
+                if(q < min){
                     min = q;
+                    m[i][j] = min;
+                    s[i][j] = k;
+                }
             }
-            m[i][j] = min;
         }
     }
 
@@ -43,9 +45,24 @@ void matrixChainMulti(int p[]) {
 }
 
 
+void optimalparens(int i, int j) {
+    if(i==j) {
+        printf("A%d ", i);
+    } else {
+        printf(" ( ");
+        optimalparens(i, s[i][j]);
+        optimalparens(s[i][j]+1, j);
+        printf(" ) ");
+    }
+
+}
+
 int main() {
 
     int p[] = {4, 10, 3, 12, 20, 7};
     matrixChainMulti(p);
+    // printMulti(1, n);
+    printf("\n\n");
+    optimalparens(1, n - 1);
 
 }
